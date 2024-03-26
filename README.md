@@ -53,9 +53,9 @@
         Then the user should see a list of upcoming events.
 
 -   Scenario 2: User should see a list of suggestions when they search for a city.
--            Given the main page is open;
-             When user starts typing in the city textbox;
-             Then the user should receive a list of cities (suggestions) that match what they’ve typed.
+-              Given the main page is open;
+               When user starts typing in the city textbox;
+               Then the user should receive a list of cities (suggestions) that match what they’ve typed.
 
 -   Scenario 3: User can select a city from the suggested list.
 
@@ -130,3 +130,13 @@
         Given the events data for the cities has loaded;
         When the user opens the app;
         Then a chart should be displayed with the number of upcoming events in each city.
+
+## Serverless functions implementation
+
+The App uses Google Calendar API which isprotected APIs. To access it, you’ll need a valid OAuth2 token.
+
+-   Requires users to sign up for Open Authorisation (OAuth) from Google
+-   An AWS Lambda serverless function authorization service will authenticate users and provide OAuth2 tokens.
+-   Users with a valid token are authorised to access the app.
+    The Google Calendar API you will use in your Meet app is also one of these protected APIs. To access it, you’ll need a valid OAuth2 token.
+    In order for users to be authorized to have access the Google Calendar API, user is given the option to sign up the open authorization(OAuth).
