@@ -11,6 +11,24 @@ provider:
         CLIENT_ID: ${file(config.json):CLIENT_ID}
         CLIENT_SECRET: ${file(config.json):CLIENT_SECRET}
         CALENDAR_ID: ${file(config.json):CALENDAR_ID}
+
+functions:
+    getAuthURL:
+    handler: handler.getAuthURL
+    events:
+        - http:
+              path: api/get-auth-url
+              method:get
+
+
+
+
+
+
+
+
+
+
 #  hello:
 #    handler: handler.hello
 #    events:
