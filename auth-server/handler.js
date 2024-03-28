@@ -31,3 +31,26 @@ module.exports.getAuthURL = async () => {
 		}),
 	};
 };
+
+module.exports.getAccessToken = async (event) => {
+	const code = decodeURIComponent(`${event.pathParameters.code}`);
+
+	return new Promise((resolve, reject) => {
+		oAuth2Client.getAccessToken(code, (error, response) => {
+			error ? reject(error) : resolve(response);
+		});
+	})
+		.then((result) => {
+			return {
+				statusCode: 200,
+				headers: {
+					'Access-Control-Allow-Origin': '*',
+					'Access-Control-Allow-Credentials': true,
+				},
+				body: JSON.stringify(result),
+			};
+		})
+		.catch((error) => {
+			return { statusCode: 200, body: JSON.stringify(error) };
+		});
+};
