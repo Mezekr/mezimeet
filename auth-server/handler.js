@@ -22,6 +22,7 @@ module.exports.getAuthURL = async () => {
 
 	return {
 		statusCode: 200,
+		mode: 'cors',
 		headers: {
 			'Access-Control-Allow-Origin': '*',
 			'Access-Control-Allow-Credentials': true,
@@ -36,21 +37,21 @@ module.exports.getAccessToken = async (event) => {
 	const code = decodeURIComponent(`${event.pathParameters.code}`);
 
 	return new Promise((resolve, reject) => {
-		oAuth2Client.getAccessToken(code, (error, response) => {
+		oAuth2Client.getToken(code, (error, response) => {
 			error ? reject(error) : resolve(response);
 		});
 	})
-		.then((result) => {
+		.then((results) => {
 			return {
 				statusCode: 200,
 				headers: {
 					'Access-Control-Allow-Origin': '*',
 					'Access-Control-Allow-Credentials': true,
 				},
-				body: JSON.stringify(result),
+				body: JSON.stringify(results),
 			};
 		})
 		.catch((error) => {
-			return { statusCode: 200, body: JSON.stringify(error) };
+			return { statusCode: 500, body: JSON.stringify(error) };
 		});
 };
