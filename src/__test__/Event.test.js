@@ -16,4 +16,11 @@ describe('<Event/>', () => {
 			EventComponent.queryByText(allEvents[0].summary)
 		).toBeInTheDocument();
 	});
+	test('render event start time', async () => {
+		const allEvents = await getEvents();
+		EventComponent.rerender(<Event event={allEvents[0]} />);
+		expect(
+			EventComponent.queryByText(allEvents[0].created)
+		).toBeInTheDocument();
+	});
 });
