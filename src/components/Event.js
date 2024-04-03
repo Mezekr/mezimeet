@@ -16,7 +16,7 @@ const Event = ({ event }) => {
 
 			{/* details section */}
 			{showDetails ? (
-				<div className="detals">
+				<div className="details">
 					<h3>Event Details</h3>
 					<p> {event.kind}</p>
 					<p> {event.description}</p>
