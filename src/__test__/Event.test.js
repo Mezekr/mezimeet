@@ -32,4 +32,9 @@ describe('<Event/>', () => {
 	test('render event details button with title (show details)', () => {
 		expect(EventComponent.queryByText(/show details/i)).toBeInTheDocument();
 	});
+	test('by default, the Events Details section should be hidden', () => {
+		expect(
+			EventComponent.container.querySelector('.details')
+		).not.toBeInTheDocument();
+	});
 });
