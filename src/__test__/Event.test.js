@@ -30,4 +30,9 @@ describe('<Event/>', () => {
 			EventComponent.queryByText(allEvents[0].location)
 		).toBeInTheDocument();
 	});
+	test('render event details button with title (show details)', async () => {
+		const allEvents = await getEvents();
+		EventComponent.rerender(<Event event={allEvents[0]} />);
+		expect(EventComponent.queryByText(/show details/i)).toBeInTheDocument();
+	});
 });
