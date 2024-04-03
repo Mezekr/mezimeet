@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const NumberOfEvents = () => {
+	const [eventsNumber, setEventsNumber] = useState('32');
 	return (
 		<div id="number-of-events">
 			<input
 				type="text"
-				value={''}
+				value={eventsNumber}
 				placeholder="Number of Event"
 				className="numberOfEvents"
 			/>
