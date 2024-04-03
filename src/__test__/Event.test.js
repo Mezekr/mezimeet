@@ -23,4 +23,11 @@ describe('<Event/>', () => {
 			EventComponent.queryByText(allEvents[0].created)
 		).toBeInTheDocument();
 	});
+	test('render event location', async () => {
+		const allEvents = await getEvents();
+		EventComponent.rerender(<Event event={allEvents[0]} />);
+		expect(
+			EventComponent.queryByText(allEvents[0].location)
+		).toBeInTheDocument();
+	});
 });
