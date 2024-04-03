@@ -13,4 +13,10 @@ describe('<NumberOfEvents/> component', () => {
 			NumberOfEventsComponent.queryByRole('textbox')
 		).toBeInTheDocument();
 	});
+
+	test('By default, 32 events are shown', () => {
+		expect(NumberOfEventsComponent.queryByRole('textbox')).toHaveValue(
+			'32'
+		);
+	});
 });
