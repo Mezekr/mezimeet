@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-const CitySearch = ({ allLocations }) => {
+const CitySearch = ({ allLocations, setCurrentCity }) => {
 	const [showSuggestions, setShowSuggestions] = useState(false);
 	const [query, setQuery] = useState('');
 	const [suggestions, setSuggestions] = useState([]);
@@ -27,6 +27,7 @@ const CitySearch = ({ allLocations }) => {
 		setQuery(value);
 		// to hide the list
 		setShowSuggestions(false);
+		setCurrentCity(value);
 	};
 
 	return (
