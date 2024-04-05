@@ -17,7 +17,6 @@ const NumberOfEvents = () => {
 				className="numberOfEvents"
 				onChange={handleInputChange}
 			/>
-			;
 		</div>
 	);
 };
