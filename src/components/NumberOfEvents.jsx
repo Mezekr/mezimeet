@@ -10,7 +10,9 @@ const NumberOfEvents = () => {
 
 	return (
 		<div id="number-of-events">
+			<label htmlFor="events-input">Number of Events </label>
 			<input
+				id="events-input"
 				type="text"
 				value={eventsNumber}
 				placeholder="Number of Event"
