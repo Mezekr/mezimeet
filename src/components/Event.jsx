@@ -5,7 +5,7 @@ const Event = ({ event }) => {
 	return (
 		<li className="event" key={event.id}>
 			<h2>{event.summary}</h2>
-			<p>{new Date(event.created).toISOString()}</p>
+			<p>{new Date(event.created).toDateString()}</p>
 			<p>{event.location}</p>
 			<button
 				className="showDetailsBtn"
