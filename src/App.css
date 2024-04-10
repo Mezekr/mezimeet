@@ -1,12 +1,11 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:500);
-
-.App * {
+* {
 	box-sizing: border-box;
 }
+
 .App {
 	text-align: center;
 	padding: 1rem;
-	width: 60%;
 	margin: auto;
 }
 
@@ -44,7 +43,7 @@ input[type='number'] {
 }
 
 .suggestions {
-	width: 280px;
+	width: 310px;
 	position: absolute;
 	top: 45px;
 	z-index: 2;
@@ -57,7 +56,7 @@ input[type='number'] {
 .suggestions > li {
 	text-align: left;
 	padding: 8px 6px 8px 10px;
-	background-color: #eee;
+	background-color: #e8e6e6;
 	cursor: default;
 }
 
@@ -67,22 +66,22 @@ input[type='number'] {
 }
 
 .suggestions > li:hover {
-	background-color: #bcdcdb;
+	background-color: #e6e7e9;
 }
 
 .event {
 	padding: 10px 10px 35px;
 	margin-bottom: 10px;
 	text-align: left;
-	border: 1px solid #dbd8d8;
+	border: 1px solid #d7d5d5;
 	border-radius: 4px;
 	position: relative;
 }
 .event:nth-child(odd) {
-	background-color: #e4e4e4;
+	background-color: #d4d6d7;
 }
 .event:hover {
-	background-color: #deeef6;
+	background-color: #95a6ae;
 }
 .showDetailsBtn {
 	position: absolute;
@@ -92,11 +91,42 @@ input[type='number'] {
 	border-radius: 8px;
 	outline: none;
 	cursor: pointer;
-	background-color: #bac0c1;
+	background-color: #324249;
 	transition: border-color 0.3s;
+	font-weight: 600;
+	color: white;
 }
 
 .showDetailsBtn:hover {
-	border-color: #646cff;
-	background-color: #dceef1;
+	border-color: #00060b;
+	background-color: #58656b;
+}
+
+@media (prefers-color-scheme: dark) {
+	.suggestions > li {
+		text-align: left;
+		padding: 8px 6px 8px 10px;
+		background-color: #0b6c18;
+		cursor: default;
+	}
+	.suggestions > li:hover {
+		background-color: #808383;
+	}
+
+	.event:nth-child(odd) {
+		background-color: #3e3c3c;
+	}
+	.event:hover {
+		background-color: #6c6d6d;
+	}
+	.showDetailsBtn {
+		background-color: #67b9de;
+		color: black;
+		transition: border-color 0.3s;
+	}
+
+	.showDetailsBtn:hover {
+		border-color: #00060b;
+		background-color: #039df6;
+	}
 }
