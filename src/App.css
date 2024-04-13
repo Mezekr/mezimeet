@@ -5,7 +5,7 @@
 
 .App {
 	text-align: center;
-	padding: 1rem;
+	padding: 5rem;
 	margin: auto;
 }
 
@@ -100,6 +100,14 @@ input[type='number'] {
 .showDetailsBtn:hover {
 	border-color: #00060b;
 	background-color: #58656b;
+}
+
+.alerts-container {
+	position: fixed;
+	top: 0px;
+	left: 20px;
+	width: 250px;
+	z-index: 1000;
 }
 
 @media (prefers-color-scheme: dark) {
