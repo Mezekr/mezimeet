@@ -5,7 +5,7 @@ const Event = ({ event }) => {
 	return (
 		<li className="event" key={event.id}>
 			<h2>{event.summary}</h2>
-			{/* <p>{new Date(`${event.created}`).toUTCString()}</p> */}
+			{/* <p>{new Date(event.created).toUTCString()}</p> */}
 			<p>{event.created}</p>
 			<p>{event.location}</p>
 			<button
