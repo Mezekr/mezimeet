@@ -1,12 +1,20 @@
 import React, { useState } from 'react';
 
-const NumberOfEvents = ({ setCurrentNOE }) => {
+const NumberOfEvents = ({ setCurrentNOE, setErrorAlert }) => {
 	const [eventsNumber, setEventsNumber] = useState('32');
 
 	const handleInputChange = (event) => {
 		const value = event.target.value;
-		setEventsNumber(value);
-		setCurrentNOE(value);
+
+		let errMsg = '';
+		if (isNaN(value) || value < 0) {
+			errMsg = 'Number of events must be greater than zero.';
+		} else {
+			errMsg = '';
+			setEventsNumber(value);
+			setCurrentNOE(value);
+		}
+		setErrorAlert(errMsg);
 	};
 
 	return (
