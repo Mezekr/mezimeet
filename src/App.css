@@ -2,10 +2,9 @@
 * {
 	box-sizing: border-box;
 }
-
 .App {
 	text-align: center;
-	padding: 5rem;
+	padding: 5rem 0.2rem 0.5rem;
 	margin: auto;
 }
 
@@ -21,7 +20,7 @@ p {
 input[type='text'],
 input[type='number'] {
 	padding: 8px 6px 8px 10px;
-	border-radius: 4px;
+	border-radius: 10px;
 	outline: none;
 	border: 1px solid #ccc;
 	font-size: 14px;
@@ -32,7 +31,7 @@ input[type='number'] {
 }
 
 .city {
-	width: 250px;
+	width: 320px;
 }
 
 #city-search {
@@ -56,7 +55,7 @@ input[type='number'] {
 .suggestions > li {
 	text-align: left;
 	padding: 8px 6px 8px 10px;
-	background-color: #e8e6e6;
+	background-color: #eee;
 	cursor: default;
 }
 
@@ -66,15 +65,15 @@ input[type='number'] {
 }
 
 .suggestions > li:hover {
-	background-color: #e6e7e9;
+	background-color: #bcdcdb;
 }
 
 .event {
-	padding: 10px 10px 35px;
+	padding: 10px 10px 40px;
 	margin-bottom: 10px;
 	text-align: left;
 	border: 1px solid #d7d5d5;
-	border-radius: 4px;
+	border-radius: 10px;
 	position: relative;
 }
 .event:nth-child(odd) {
@@ -112,20 +111,18 @@ input[type='number'] {
 
 @media (prefers-color-scheme: dark) {
 	.suggestions > li {
-		text-align: left;
-		padding: 8px 6px 8px 10px;
-		background-color: #0b6c18;
-		cursor: default;
+		background-color: #075168;
 	}
 	.suggestions > li:hover {
-		background-color: #808383;
+		background-color: #dbdede;
+		color: #00060b;
 	}
 
 	.event:nth-child(odd) {
-		background-color: #3e3c3c;
+		background-color: #0e3452;
 	}
 	.event:hover {
-		background-color: #6c6d6d;
+		background-color: #36424e;
 	}
 	.showDetailsBtn {
 		background-color: #67b9de;
@@ -135,6 +132,6 @@ input[type='number'] {
 
 	.showDetailsBtn:hover {
 		border-color: #00060b;
-		background-color: #039df6;
+		background-color: #059ef7;
 	}
 }
