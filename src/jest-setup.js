@@ -15,3 +15,9 @@ console.error = (...args) => {
 	);
 	if (!ignoreMessage) originalError(...args);
 };
+
+global.ResizeObserver = jest.fn().mockImplementation(() => ({
+	observe: jest.fn(),
+	unobserve: jest.fn(),
+	disconnect: jest.fn(),
+}));
