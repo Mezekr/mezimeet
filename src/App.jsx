@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import { extractLocations, getEvents } from './api';
 import { ErrorAlert, InfoAlert, WarningAlert } from './components/Alert';
+import CityEventsChart from './components/CityEventsChart';
 import CitySearch from './components/CitySearch';
 import EventList from './components/EventList';
 import NumberOfEvents from './components/NumberOfEvents';
@@ -38,6 +39,7 @@ const App = () => {
 	return (
 		<div className="App">
 			<h1>MeziMeet App</h1>
+			<p>Choose your nearest city to view events</p>
 			<div className="alerts-container">
 				{infoAlert.length ? <InfoAlert text={infoAlert} /> : null}
 				{errorAlert.length ? <ErrorAlert text={errorAlert} /> : null}
@@ -54,6 +56,10 @@ const App = () => {
 				setCurrentNOE={setCurrentNOE}
 				setErrorAlert={setErrorAlert}
 			/>
+			<div className="charts-container">
+				<CityEventsChart allLocations={allLocations} events={events} />
+			</div>
+			<hr />
 			<EventList events={events} />
 		</div>
 	);
