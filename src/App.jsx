@@ -37,7 +37,7 @@ const App = () => {
 
 	return (
 		<div className="App">
-			<h1>Mezimeet App</h1>
+			<h1>MeziMeet App</h1>
 			<div className="alerts-container">
 				{infoAlert.length ? <InfoAlert text={infoAlert} /> : null}
 				{errorAlert.length ? <ErrorAlert text={errorAlert} /> : null}
