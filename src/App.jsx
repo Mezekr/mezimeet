@@ -27,13 +27,6 @@ const App = () => {
 	};
 
 	useEffect(() => {
-		// let warningMsg = '';
-		// if (navigator.onLine) {
-		// 	warningMsg = '';
-		// } else {
-		// 	warningMsg =
-		// 		"You're offline. The list has been loaded from the cache, so it's not up to date.";
-		// }
 		setWarningAlert(
 			!navigator.onLine
 				? "You're offline. The list has been loaded from the cache, so it's not up to date."
@@ -44,6 +37,7 @@ const App = () => {
 
 	return (
 		<div className="App">
+			<h1>Mezimeet App</h1>
 			<div className="alerts-container">
 				{infoAlert.length ? <InfoAlert text={infoAlert} /> : null}
 				{errorAlert.length ? <ErrorAlert text={errorAlert} /> : null}
