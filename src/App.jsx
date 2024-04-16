@@ -4,6 +4,7 @@ import { extractLocations, getEvents } from './api';
 import { ErrorAlert, InfoAlert, WarningAlert } from './components/Alert';
 import CityEventsChart from './components/CityEventsChart';
 import CitySearch from './components/CitySearch';
+import EvetGenersChart from './components/EventGenresChart';
 import EventList from './components/EventList';
 import NumberOfEvents from './components/NumberOfEvents';
 
@@ -38,29 +39,40 @@ const App = () => {
 
 	return (
 		<div className="App">
-			<h1>MeziMeet App</h1>
-			<p>Choose your nearest city to view events</p>
-			<div className="alerts-container">
-				{infoAlert.length ? <InfoAlert text={infoAlert} /> : null}
-				{errorAlert.length ? <ErrorAlert text={errorAlert} /> : null}
-				{warningAlert.length ? (
-					<WarningAlert text={warningAlert} />
-				) : null}
-			</div>
-			<CitySearch
-				allLocations={allLocations}
-				setCurrentCity={setCurrentCity}
-				setInfoAlert={setInfoAlert}
-			/>
-			<NumberOfEvents
-				setCurrentNOE={setCurrentNOE}
-				setErrorAlert={setErrorAlert}
-			/>
-			<div className="charts-container">
-				<CityEventsChart allLocations={allLocations} events={events} />
-			</div>
-			<hr />
-			<EventList events={events} />
+			<header>
+				<h1>MeziMeet App</h1>
+				<p>Choose your nearest city to view events</p>
+			</header>
+			<main>
+				<div className="alerts-container">
+					{infoAlert.length ? <InfoAlert text={infoAlert} /> : null}
+					{errorAlert.length ? (
+						<ErrorAlert text={errorAlert} />
+					) : null}
+					{warningAlert.length ? (
+						<WarningAlert text={warningAlert} />
+					) : null}
+				</div>
+				<CitySearch
+					allLocations={allLocations}
+					setCurrentCity={setCurrentCity}
+					setInfoAlert={setInfoAlert}
+				/>
+				<NumberOfEvents
+					setCurrentNOE={setCurrentNOE}
+					setErrorAlert={setErrorAlert}
+				/>
+				<div className="charts-container">
+					<EvetGenersChart events={events} />
+					<CityEventsChart
+						allLocations={allLocations}
+						events={events}
+					/>
+				</div>
+				<hr />
+				<EventList events={events} />
+			</main>
+			<footer></footer>
 		</div>
 	);
 };
