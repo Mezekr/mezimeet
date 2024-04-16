@@ -1,16 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import {
 	Cell,
-	Cell,
-	Legend,
 	Legend,
 	Pie,
-	Pie,
-	PieChart,
 	PieChart,
 	ResponsiveContainer,
-	ResponsiveContainer,
-	Tooltip,
 	Tooltip,
 } from 'recharts';
 
@@ -38,12 +32,10 @@ const EvetGenersChart = ({ events }) => {
 	};
 
 	const RADIAN = Math.PI / 180;
-	const RADIAN = Math.PI / 180;
 	const renderCustomizedLabel = ({
 		cx,
 		cy,
 		midAngle,
-		innerRadius,
 		innerRadius,
 		outerRadius,
 		percent,
@@ -56,7 +48,6 @@ const EvetGenersChart = ({ events }) => {
 			<text
 				x={x}
 				y={y}
-				fill="black"
 				fill="black"
 				textAnchor={x > cx ? 'start' : 'end'}
 				dominantBaseline="central"
@@ -80,12 +71,6 @@ const EvetGenersChart = ({ events }) => {
 						<Cell key={`cell-${index}`} fill={COLORS[index]} />
 					))}
 				</Pie>
-				<Legend
-					layout="horizontal"
-					align="center"
-					verticalAlign="bottom"
-				/>
-				<Tooltip cursor={{ strokeDasharray: '3 3' }} />
 				<Legend
 					layout="horizontal"
 					align="center"
