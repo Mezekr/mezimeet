@@ -1,5 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Cell, Legend, Pie, PieChart, ResponsiveContainer } from 'recharts';
+import {
+	Cell,
+	Legend,
+	Pie,
+	PieChart,
+	ResponsiveContainer,
+	Tooltip,
+} from 'recharts';
 
 const EvetGenersChart = ({ events }) => {
 	const [data, setData] = useState([]);
@@ -24,23 +31,24 @@ const EvetGenersChart = ({ events }) => {
 		return data;
 	};
 
+	const RADIAN = Math.PI / 180;
 	const renderCustomizedLabel = ({
 		cx,
 		cy,
 		midAngle,
+		innerRadius,
 		outerRadius,
 		percent,
 		index,
 	}) => {
-		const RADIAN = Math.PI / 180;
-		const radius = outerRadius;
-		const x = cx + radius * Math.cos(-midAngle * RADIAN) * 1.07;
-		const y = cy + radius * Math.sin(-midAngle * RADIAN) * 1.07;
+		const radius = innerRadius + (outerRadius - innerRadius) * 0.3;
+		const x = cx + radius * Math.cos(-midAngle * RADIAN);
+		const y = cy + radius * Math.sin(-midAngle * RADIAN);
 		return percent ? (
 			<text
 				x={x}
 				y={y}
-				fill={COLORS[index]}
+				fill="black"
 				textAnchor={x > cx ? 'start' : 'end'}
 				dominantBaseline="central"
 			>
@@ -55,7 +63,6 @@ const EvetGenersChart = ({ events }) => {
 				<Pie
 					data={data}
 					dataKey="value"
-					fill="#8884d8"
 					labelLine={false}
 					label={renderCustomizedLabel}
 					outerRadius={120}
@@ -64,7 +71,12 @@ const EvetGenersChart = ({ events }) => {
 						<Cell key={`cell-${index}`} fill={COLORS[index]} />
 					))}
 				</Pie>
-				<Legend verticalAlign="bottom" height={36} />
+				<Legend
+					layout="horizontal"
+					align="center"
+					verticalAlign="bottom"
+				/>
+				<Tooltip cursor={{ strokeDasharray: '3 3' }} />
 			</PieChart>
 		</ResponsiveContainer>
 	);
