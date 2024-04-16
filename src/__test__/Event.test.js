@@ -26,9 +26,8 @@ describe('<Event/>', () => {
 	});
 
 	test('render event start time', () => {
-		expect(
-			EventComponent.queryByText(allEvents[0].created)
-		).toBeInTheDocument();
+		const date = new Date(allEvents[0].created).toUTCString();
+		expect(EventComponent.queryByText(date)).toBeInTheDocument();
 	});
 
 	test('render event location', () => {
