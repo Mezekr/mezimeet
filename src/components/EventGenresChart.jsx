@@ -31,26 +31,26 @@ const EvetGenersChart = ({ events }) => {
 		return data;
 	};
 
-	const RADIAN = Math.PI / 180;
 	const renderCustomizedLabel = ({
 		cx,
 		cy,
 		midAngle,
-		innerRadius,
 		outerRadius,
 		percent,
 		index,
 	}) => {
-		const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
-		const x = cx + radius * Math.cos(-midAngle * RADIAN);
-		const y = cy + radius * Math.sin(-midAngle * RADIAN);
+		const RADIAN = Math.PI / 180;
+		const radius = outerRadius;
+		const x = cx + radius * Math.cos(-midAngle * RADIAN) * 1.07;
+		const y = cy + radius * Math.sin(-midAngle * RADIAN) * 1.07;
 		return percent ? (
 			<text
 				x={x}
 				y={y}
-				fill="black"
+				fill={COLORS[index]}
+				// fill="black"
 				textAnchor={x > cx ? 'start' : 'end'}
-				dominantBaseline="central"
+				dominantBaseline="middle"
 			>
 				{`${genres[index]} ${(percent * 100).toFixed(0)}%`}
 			</text>
@@ -65,7 +65,7 @@ const EvetGenersChart = ({ events }) => {
 					dataKey="value"
 					labelLine={false}
 					label={renderCustomizedLabel}
-					outerRadius={120}
+					outerRadius={60}
 				>
 					{data.map((entry, index) => (
 						<Cell key={`cell-${index}`} fill={COLORS[index]} />
