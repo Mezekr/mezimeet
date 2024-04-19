@@ -93,7 +93,13 @@ label {
 .suggestions > li:hover {
 	background-color: #bcdcdb;
 }
-
+#event-list {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+	gap: 2em;
+	padding: 2em 0.5em;
+	justify-content: center;
+}
 .event {
 	padding: 10px 10px 40px;
 	margin-bottom: 10px;
@@ -138,7 +144,7 @@ label {
 
 .charts-container {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
 	gap: 2em;
 	padding: 2em 0.5em;
 	justify-content: center;
